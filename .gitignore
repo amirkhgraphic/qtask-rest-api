@@ -8,7 +8,7 @@ __pycache__/
 
 staticfiles/
 media/
-coverage_reports/*
+coverage_reports
 
 *.sqlite3
 .env
