@@ -24,7 +24,7 @@ class KeyValue(models.Model):
         related_name='children',
     )
     value = models.JSONField(null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True, editable=False)
+    created_at = models.DateTimeField(auto_now_add=True, editable=False, db_index=True)
 
     def save(self, *args, **kwargs):
         """

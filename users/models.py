@@ -31,7 +31,7 @@ class User(AbstractUser):
         null=True,
     )
     email = models.EmailField()
-    created_at = models.DateTimeField(auto_now_add=True, editable=False)
+    created_at = models.DateTimeField(auto_now_add=True, editable=False, db_index=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
