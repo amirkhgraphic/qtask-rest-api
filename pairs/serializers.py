@@ -38,6 +38,7 @@ class KeyValueSerializer(serializers.ModelSerializer):
             'type',
             'parent',
             'children',
+            'created_at',
         ]
 
         extra_kwargs = {
