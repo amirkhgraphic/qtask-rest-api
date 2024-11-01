@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from rest_framework import generics
 
-# Create your views here.
+from .models import KeyValue
+from .serializers import KeyValueSerializer
+
+
+class KeyValueListCreateAPIView(generics.ListCreateAPIView):
+    queryset = KeyValue.objects.all()
+    serializer_class = KeyValueSerializer
+
+
+class KeyValueRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = KeyValue.objects.all()
+    serializer_class = KeyValueSerializer
