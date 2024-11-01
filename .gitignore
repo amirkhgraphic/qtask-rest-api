@@ -10,6 +10,8 @@ staticfiles/
 media/
 coverage_reports
 
+keys/private.pem
+keys/public.pem
 *.sqlite3
 .env
 
