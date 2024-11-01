@@ -91,7 +91,11 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+
     'NON_FIELD_ERRORS_KEY': 'invalid data',
+
+    'DEFAULT_PAGINATION_CLASS': 'core.pagination.CustomCursorPagination',
+    'PAGE_SIZE': 20,
 }
 
 SIMPLE_JWT = {
