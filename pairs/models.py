@@ -30,7 +30,8 @@ class KeyValue(models.Model):
         Ensure the key is unique across all key-value types.
         Ensure the type of the pair is compatible with its value.
         """
-        if KeyValue.objects.filter(key=self.key, parent=self.parent).exists():
+        duplicate_kv = KeyValue.objects.filter(key=self.key, parent=self.parent)
+        if duplicate_kv.exists() and duplicate_kv.first() != self:
             raise ValidationError(f"A key '{self.key}' already exists in the same namespace.")
 
         if self.type == self.KeyValueTypeChoices.BOOLEAN and not isinstance(self.value, bool):
@@ -39,6 +40,9 @@ class KeyValue(models.Model):
             raise ValidationError("For a Number type, value must be an integer.")
         elif self.type == self.KeyValueTypeChoices.ARRAY and not isinstance(self.value, list):
             raise ValidationError("For an Array type, value must be a list.")
+
+        if self.parent and self.parent.type != self.KeyValueTypeChoices.NESTED:
+            raise ValidationError("Parent key should be a Nested type key-value")
 
         super().save(*args, **kwargs)
 
