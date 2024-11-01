@@ -12,6 +12,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'users.apps.UsersConfig',
+    'pairs.apps.PairsConfig',
 
     'rest_framework',
     'rest_framework_simplejwt',
@@ -90,6 +91,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    'NON_FIELD_ERRORS_KEY': 'invalid data',
 }
 
 SIMPLE_JWT = {
