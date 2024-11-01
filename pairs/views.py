@@ -5,7 +5,7 @@ from .serializers import KeyValueSerializer
 
 
 class KeyValueListCreateAPIView(generics.ListCreateAPIView):
-    queryset = KeyValue.objects.all()
+    queryset = KeyValue.objects.filter(parent__isnull=True)
     serializer_class = KeyValueSerializer
 
 
