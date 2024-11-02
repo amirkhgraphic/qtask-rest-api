@@ -6,7 +6,7 @@ __pycache__/
 
 *.log
 
-staticfiles/
+staticfiles/*
 media/
 coverage_reports
 
