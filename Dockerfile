@@ -12,4 +12,4 @@ COPY . /app/
 
 EXPOSE 8000
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "core.wsgi:application", "--workers=3"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "core.wsgi:application", "--workers=${GUNICORN_WORKERS}"]
