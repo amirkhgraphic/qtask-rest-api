@@ -13,6 +13,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'pairs.apps.PairsConfig',
 
+    'django_filters',
     'rest_framework',
     'rest_framework_simplejwt',
     'drf_spectacular',
@@ -100,6 +101,12 @@ REST_FRAMEWORK = {
 
     # OpenAPI 3 documentation
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+
+    # Django Filter settings
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+    ),
 }
 
 SPECTACULAR_SETTINGS = {
