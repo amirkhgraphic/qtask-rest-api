@@ -3,6 +3,7 @@ from rest_framework import (
     permissions,
 )
 
+from .filters import UserFilter
 from .models import User
 from .permissions import IsOwnerOrAdminUser
 from .serializers import UserSerializer
@@ -48,6 +49,13 @@ class UserAdminListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = UserSerializer
     permission_classes = [
         permissions.IsAdminUser,
+    ]
+    filterset_class = UserFilter
+    search_fields = [
+        'username',
+        'first_name',
+        'last_name',
+        'email',
     ]
 
     def perform_create(self, serializer):
